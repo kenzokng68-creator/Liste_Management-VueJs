@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import BookForm from "./components/BookForm.vue";
-import BookList from "./components/BookList.vue";
 
 const view = ref("");
 function open(e) {
@@ -9,6 +8,7 @@ function open(e) {
   view.value = e;
 }
 </script>
+
 <template>
   <main>
     <div class="container_ListBook">
@@ -29,41 +29,82 @@ function open(e) {
     </div>
   </main>
 </template>
+
 <style>
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+#app {
+  display: block !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
 main {
+  display: flex !important;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* --- DASHBOARD (SIDEBAR) --- */
+.container_ListBook {
+  width: 350px;
+  background-color: #1a222d;
+  min-height: 100vh;
   display: flex;
-  /* flex-direction: row; */
-  justify-content: space-around;
-  gap: 200px;
-  margin: auto;
+  flex-direction: column;
+  padding-top: 20px;
+  z-index: 10; /* Assure que la sidebar reste au premier plan */
+}
+
+.container_ListBook h2 {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 20px 30px;
   width: 100%;
 }
+
 .listBook {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 12px;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.container_ListBook {
-  background-color: midnightblue;
-  width: 50%;
-  height: 500px;
-  text-align: center;
-  margin-left: -100px;
-  margin-top: -33px;
-}
-.acceuilContainer {
-  background-color: gray;
-  width: 50%;
-  height: 500px;
-  margin-top: -33px;
-}
-button {
+
+.listBook button {
+  background-color: #f1f3f5;
+  border: none;
+  padding: 18px 30px;
+  text-align: left;
+  font-size: 18px;
   cursor: pointer;
+  width: 100%;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.listBook button:hover {
+  background-color: #e2e6ea;
+}
+
+/* --- ACCUEIL (Avec l'image en fond uniquement ici) --- */
+.acceuilContainer {
+  flex: 1;
+  padding: 40px;
+  /* L'image est appliquée ici au lieu du body */
+  background-image: url("premium_photo-1682284079664-c90a1603733b.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white; /* Texte en blanc pour être lisible sur l'image */
+}
+
+.acceuilContainer h1 {
+  font-size: 32px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Ombre plus forte pour détacher le texte du fond */
 }
 </style>
