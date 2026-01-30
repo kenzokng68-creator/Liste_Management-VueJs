@@ -58,7 +58,7 @@ main {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  z-index: 10; /* Assure que la sidebar reste au premier plan */
+  z-index: 10;
 }
 
 .container_ListBook h2 {
