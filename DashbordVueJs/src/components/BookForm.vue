@@ -52,7 +52,7 @@ const canAdd = computed(() => {
     <br />
     <label for="">year of the work</label>
     <br />
-    <input v-model="bookAnnee" type="date.now()" placeholder="Year of the book" />
+    <input v-model="bookAnnee" type="date" placeholder="Year of the book" />
     <br />
     <label for="">category of book</label>
     <br />
