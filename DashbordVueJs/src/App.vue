@@ -1,15 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import BookForm from "./components/BookForm.vue";
-import BookItems from "./components/BookItems.vue";
+
 const view = ref("");
 function open(e) {
   console.log(e);
   view.value = e;
 }
-const actifsCount = computed(() => {
-  return table.value.filter((p) => p.etat === "Actif").length;
-});
 </script>
 
 <template>
@@ -29,7 +26,7 @@ const actifsCount = computed(() => {
     <div class="acceuilContainer">
       <h1>Acceuil</h1>
       <BookForm v-if="view === 'Book'"></BookForm>
-      <BookItems :table="table" :actifsCount="actifsCount" />
+      
     </div>
   </main>
 </template>
@@ -99,13 +96,16 @@ main {
 .acceuilContainer {
   flex: 1;
   padding: 40px;
-  /* L'image est appliquée ici au lieu du body */
-  background-image: url("premium_photo-1682284079664-c90a1603733b.avif");
+  /* On ajoute un dégradé noir semi-transparent (0.5) par-dessus l'image */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("premium_photo-1682284079664-c90a1603733b.avif");
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: white; /* Texte en blanc pour être lisible sur l'image */
-}
+  color: white; 
+}g
 
 .acceuilContainer h1 {
   font-size: 32px;

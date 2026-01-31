@@ -9,17 +9,9 @@ const emit = defineEmits(["delete", "update"]);
 function toggleStatus() {
   emit("update", props.book);
 }
-const Rows = defineProps({
-  table: Array,       // Le tableau complet
-  actifsCount: Number // Le chiffre calculé des actifs
-});
 </script>
 
 <template>
-    <div>
-        <p> Total : {{ table.length }}</p>
-        <p>Strong: {{ actifsCount }}</p>
-    </div>
   <li>
     <span>
       {{ index + 1 }} -- {{ book.Title }} -- {{ book.Auteur }} --
