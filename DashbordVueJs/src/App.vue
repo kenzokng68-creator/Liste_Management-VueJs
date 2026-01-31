@@ -1,12 +1,15 @@
 <script setup>
 import { ref } from "vue";
 import BookForm from "./components/BookForm.vue";
-
+import BookItems from "./components/BookItems.vue";
 const view = ref("");
 function open(e) {
   console.log(e);
   view.value = e;
 }
+const actifsCount = computed(() => {
+  return table.value.filter((p) => p.etat === "Actif").length;
+});
 </script>
 
 <template>
@@ -26,6 +29,7 @@ function open(e) {
     <div class="acceuilContainer">
       <h1>Acceuil</h1>
       <BookForm v-if="view === 'Book'"></BookForm>
+      <BookItems :table="table" :actifsCount="actifsCount" />
     </div>
   </main>
 </template>
